@@ -464,7 +464,6 @@ MonoBehaviour:
   enemigos:
   - {fileID: 355158735}
   - {fileID: 1289081426}
-  Skin: []
 --- !u!4 &1234850652
 Transform:
   m_ObjectHideFlags: 0
@@ -675,6 +674,18 @@ PrefabInstance:
     - target: {fileID: 4243191148273330065, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
       propertyPath: m_Name
       value: Capsule
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243191148273330070, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243191148273330070, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243191148273330070, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4243191148273330071, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
       propertyPath: m_RootOrder

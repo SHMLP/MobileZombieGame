@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyCaract : MonoBehaviour
 {
     public int vidaEnemigo;
-    SpriteRenderer skin;
-    Animator animacion;
+    protected SpriteRenderer skin;
+    protected Animator animacion;
 
     // Start is called before the first frame update
     void Start()

@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2390724951911259210}
   - component: {fileID: -8008585935116774688}
   - component: {fileID: 7661644681362351140}
+  - component: {fileID: 6791538054164555061}
+  - component: {fileID: -3558624454484499599}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -156,3 +158,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6791538054164555061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243191148273330065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515864d7ae289e7469c7b56d91809c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaEnemigo: 0
+--- !u!114 &-3558624454484499599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243191148273330065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a619c7355ba294e89446e27117da66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaEnemigo: 0

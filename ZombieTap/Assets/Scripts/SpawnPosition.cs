@@ -9,7 +9,8 @@ public class SpawnPosition : MonoBehaviour
     public Transform rLimit, lLimit;
     public float tiempoAparicion;
     public GameObject[] enemigos;
-    public Component[] Skin;
+   
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class SpawnPosition : MonoBehaviour
     void Update()
     {
         //Skin = Random.
-        //enemySpawnPosition = transform.position;
+        enemySpawnPosition = transform.position;
         enemyPositionX = Random.Range(rLimit.position.x,lLimit.position.x);
         enemySpawnPosition.x = enemyPositionX;
 
@@ -31,13 +32,30 @@ public class SpawnPosition : MonoBehaviour
                 if (item.activeInHierarchy==false)
                 {
                     item.transform.position = enemySpawnPosition;
-                    //item.AddComponent<>();
                     item.SetActive(true);
+                    EnemyType(item);
                     break;
                 }
             }
             spawnTime = 0;
+            print(spawnTime);
         }
         spawnTime += Time.deltaTime;
+    }
+
+    void EnemyType(GameObject tipoenemigo)
+    {
+        print("Empece");
+        int random;
+        random = Random.Range(1, 3);
+        switch (random)
+        {
+            case 1:
+                tipoenemigo.GetComponent<EnemyTypeA>().inicar();
+                break;
+            case 2:
+                tipoenemigo.GetComponent<EnemyTypeB>().inicar();
+                break;
+        }
     }
 }

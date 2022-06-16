@@ -10,10 +10,11 @@ public class EnemyState : MonoBehaviour
     public delegate void ManejoDeCombos();
     public static ManejoDeCombos manejoDeCombos;
 
+
     private void OnMouseDown()
     {
         gameObject.SetActive(false);
-       
+        
 
 
     }
