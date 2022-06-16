@@ -18,4 +18,5 @@ public class ZombieMovement : MonoBehaviour
         transform.Translate(new Vector3(0, -1, 0) * enemyVelocityY * Time.deltaTime);
     }
 
+    
 }

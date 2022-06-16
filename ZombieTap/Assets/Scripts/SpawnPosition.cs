@@ -20,13 +20,15 @@ public class SpawnPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Skin = Random.
+        
         enemySpawnPosition = transform.position;
         enemyPositionX = Random.Range(rLimit.position.x,lLimit.position.x);
         enemySpawnPosition.x = enemyPositionX;
 
+        spawnTime += Time.deltaTime;
         if (spawnTime >= tiempoAparicion)
-        {
+        {  
+            spawnTime = 0;
             foreach (GameObject item in enemigos)
             {
                 if (item.activeInHierarchy==false)
@@ -37,17 +39,16 @@ public class SpawnPosition : MonoBehaviour
                     break;
                 }
             }
-            spawnTime = 0;
-            print(spawnTime);
         }
-        spawnTime += Time.deltaTime;
+        
     }
 
     void EnemyType(GameObject tipoenemigo)
     {
-        print("Empece");
-        int random;
+        //print("Empece");
+        int random = 0;
         random = Random.Range(1, 3);
+
         switch (random)
         {
             case 1:

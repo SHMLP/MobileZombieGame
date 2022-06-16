@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class EnemyCaract : MonoBehaviour
 {
-    public int vidaEnemigo;
-    protected SpriteRenderer skin;
+    protected int vidaEnemigo;
     protected Animator animacion;
+    public RuntimeAnimatorController animationController;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        skin = GetComponent<SpriteRenderer>();
         animacion = GetComponent<Animator>();
     }
+   
 
     // Update is called once per frame
     void Update()
     {
-        
+ 
     }
 }

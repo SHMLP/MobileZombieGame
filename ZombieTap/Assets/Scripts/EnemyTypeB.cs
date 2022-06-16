@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class EnemyTypeB : EnemyCaract
 {
+    
+    //public RuntimeAnimatorController animacionB;
     public void inicar()
     {
-        print("Adios");
-        skin.color = Color.green;
+        //print("Adios");
+        
+        animacion.runtimeAnimatorController = animationController;
     }
 }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7661644681362351140}
   - component: {fileID: 6791538054164555061}
   - component: {fileID: -3558624454484499599}
+  - component: {fileID: -7145082273929696306}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -170,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515864d7ae289e7469c7b56d91809c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaEnemigo: 0
+  animationController: []
 --- !u!114 &-3558624454484499599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,4 +184,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a619c7355ba294e89446e27117da66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaEnemigo: 0
+  animationController: []
+--- !u!114 &-7145082273929696306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243191148273330065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6429f07e939015541906bf998adedb21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationController:
+  - {fileID: 9100000, guid: 4b51f3a14c1fe9348b74e681c3f0d036, type: 2}
+  - {fileID: 9100000, guid: 0210136d8049ded4882e603173c26f34, type: 2}

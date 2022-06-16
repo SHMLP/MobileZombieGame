@@ -671,6 +671,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 900618538}
     m_Modifications:
+    - target: {fileID: -3558624454484499599, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: skin
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -3558624454484499599, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: animacion
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -3558624454484499599, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: animationController.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3558624454484499599, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: animationController.Array.data[0]
+      value: 
+      objectReference: {fileID: 9100000, guid: 4b51f3a14c1fe9348b74e681c3f0d036, type: 2}
+    - target: {fileID: -3558624454484499599, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: animationController.Array.data[1]
+      value: 
+      objectReference: {fileID: 9100000, guid: 0210136d8049ded4882e603173c26f34, type: 2}
     - target: {fileID: 4243191148273330065, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
       propertyPath: m_Name
       value: Capsule
@@ -731,7 +751,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6791538054164555061, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: skin
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6791538054164555061, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: animacion
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661644681362351140, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -7145082273929696306, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+    - {fileID: 6791538054164555061, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
 --- !u!1001 &2011512696
 PrefabInstance:
@@ -740,6 +774,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 900618538}
     m_Modifications:
+    - target: {fileID: -3558624454484499599, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: skin
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -3558624454484499599, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: animacion
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4243191148273330065, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
       propertyPath: m_Name
       value: Capsule (1)
@@ -788,7 +830,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6791538054164555061, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: skin
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6791538054164555061, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: animacion
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6791538054164555061, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: animationController.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6791538054164555061, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: animationController.Array.data[0]
+      value: 
+      objectReference: {fileID: 9100000, guid: 4b51f3a14c1fe9348b74e681c3f0d036, type: 2}
+    - target: {fileID: 6791538054164555061, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: animationController.Array.data[1]
+      value: 
+      objectReference: {fileID: 9100000, guid: 0210136d8049ded4882e603173c26f34, type: 2}
+    - target: {fileID: 7661644681362351140, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -7145082273929696306, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
+    - {fileID: -3558624454484499599, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 56dfb617d50e55e47bc00e590be0b034, type: 3}
 --- !u!1 &2032670187
 GameObject:
