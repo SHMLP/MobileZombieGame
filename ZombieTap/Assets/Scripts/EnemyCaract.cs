@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCaract : MonoBehaviour
+public abstract class EnemyCaract : MonoBehaviour
 {
-    protected int vidaEnemigo;
+    public int vidaEnemigo;
     protected Animator animacion;
+    protected float movimientox;
+    protected ZombieMovement movement;
     public RuntimeAnimatorController animationController;
 
-    // Start is called before the first frame update
-    void OnEnable()
+    private void Awake()
     {
+        movement = GetComponent<ZombieMovement>();
         animacion = GetComponent<Animator>();
     }
-   
-
-    // Update is called once per frame
-    void Update()
+    void OnEnable()
     {
- 
+       
+        
     }
+
+    public abstract void iniciar();
 }

@@ -8,16 +8,23 @@ public class SpawnPosition : MonoBehaviour
     float enemyPositionX,spawnTime;
     public Transform rLimit, lLimit;
     public float tiempoAparicion;
-    public GameObject[] enemigos;
-   
-    
-    // Start is called before the first frame update
+    public Transform enemigos;
+    public GameObject enemyPrefab;
+    protected EnemyCaract[] enemysTypeList;
+    public List<Transform> listaEnemigos;
+
     void Start()
     {
-        
+      
+        enemysTypeList = enemyPrefab.GetComponents<EnemyCaract>();
+        for (int i = 0; i < enemigos.childCount; i++)
+        {
+            listaEnemigos.Add(enemigos.GetChild(i));
+
+        }
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -27,14 +34,16 @@ public class SpawnPosition : MonoBehaviour
 
         spawnTime += Time.deltaTime;
         if (spawnTime >= tiempoAparicion)
-        {  
+        {
+            
             spawnTime = 0;
-            foreach (GameObject item in enemigos)
+            foreach (Transform item in listaEnemigos)
             {
-                if (item.activeInHierarchy==false)
+                if (item.gameObject.activeInHierarchy==false)
                 {
-                    item.transform.position = enemySpawnPosition;
-                    item.SetActive(true);
+
+                    item.position = enemySpawnPosition;
+                    item.gameObject.SetActive(true);
                     EnemyType(item);
                     break;
                 }
@@ -43,20 +52,14 @@ public class SpawnPosition : MonoBehaviour
         
     }
 
-    void EnemyType(GameObject tipoenemigo)
+    void EnemyType(Transform tipoenemigo)
     {
-        //print("Empece");
-        int random = 0;
-        random = Random.Range(1, 3);
+       
+        
+        int random = Random.Range(0, enemysTypeList.Length);
 
-        switch (random)
-        {
-            case 1:
-                tipoenemigo.GetComponent<EnemyTypeA>().inicar();
-                break;
-            case 2:
-                tipoenemigo.GetComponent<EnemyTypeB>().inicar();
-                break;
-        }
+        EnemyCaract choose = tipoenemigo.GetComponent(enemysTypeList[random].GetType()) as EnemyCaract;
+        choose.enabled = true;
+        choose.iniciar();
     }
 }

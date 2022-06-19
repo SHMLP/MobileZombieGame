@@ -15,8 +15,13 @@ public class ZombieMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(0, -1, 0) * enemyVelocityY * Time.deltaTime);
+        transform.Translate(new Vector3(0, -1, 0) * enemyVelocityY * Time.deltaTime); 
     }
 
-    
+    public void SideMovement(float movimientox)
+    {
+        transform.Translate(new Vector3(movimientox, 0, 0) * Time.deltaTime);
+    }
+
+
 }
