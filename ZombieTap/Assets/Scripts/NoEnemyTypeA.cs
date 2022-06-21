@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class NoEnemyTypeA : EnemyCaract
 {
-  
-    public override void iniciar()
+    private void Start()
     {
         animacion.runtimeAnimatorController = animationController;
     }
+   
 }

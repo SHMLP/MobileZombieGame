@@ -13,8 +13,7 @@ public class LevelDuration : MonoBehaviour
         sumaTiempo += Time.deltaTime;
         if (sumaTiempo >= (Vector3.Distance(fLevelDuration.position, iLevelDuration.position)) / VelocityBallY)
         {
-            //print("Nivel2" + ((Vector3.Distance(fLevelDuration.position, iLevelDuration.position)) / VelocityBallY));
-            //tiempoAparicion = 1;
+           
             transform.position = iLevelDuration.position;
             sumaTiempo = 0;
         }

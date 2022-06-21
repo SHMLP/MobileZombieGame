@@ -9,20 +9,16 @@ public class SpawnPosition : MonoBehaviour
     public Transform rLimit, lLimit;
     public float tiempoAparicion;
     public Transform enemigos;
-    public GameObject enemyPrefab;
-    protected EnemyCaract[] enemysTypeList;
     public List<Transform> listaEnemigos;
+    GameManager game;
 
     void Start()
     {
-      
-        enemysTypeList = enemyPrefab.GetComponents<EnemyCaract>();
+        game = FindObjectOfType<GameManager>();
         for (int i = 0; i < enemigos.childCount; i++)
         {
             listaEnemigos.Add(enemigos.GetChild(i));
-
         }
-
     }
 
     void Update()
@@ -54,12 +50,8 @@ public class SpawnPosition : MonoBehaviour
 
     void EnemyType(Transform tipoenemigo)
     {
-       
-        
-        int random = Random.Range(0, enemysTypeList.Length);
-
-        EnemyCaract choose = tipoenemigo.GetComponent(enemysTypeList[random].GetType()) as EnemyCaract;
+        int random = Random.Range(0, game.enemysTypeList.Length);
+        EnemyCaract choose = tipoenemigo.GetComponent(game.enemysTypeList[random].GetType()) as EnemyCaract;
         choose.enabled = true;
-        choose.iniciar();
     }
 }

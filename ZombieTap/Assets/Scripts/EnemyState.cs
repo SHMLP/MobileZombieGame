@@ -9,23 +9,17 @@ public class EnemyState : MonoBehaviour
 
     public delegate void ManejoDeCombos();
     public static ManejoDeCombos manejoDeCombos;
-
-    public GameObject enemyPrefab;
-    protected EnemyCaract[] enemysTypeList;
-   
+    GameManager game;
     private void Start()
     {
-        enemysTypeList = enemyPrefab.GetComponents<EnemyCaract>();
+        game = FindObjectOfType<GameManager>();
     }
     private void OnMouseDown()
     {
         
         gameObject.SetActive(false);
-        
-       
-        foreach (EnemyCaract item in enemysTypeList)
+        foreach (EnemyCaract item in game.enemysTypeList)
         {
-            
             EnemyCaract choose = GetComponent(item.GetType()) as EnemyCaract;
             if (choose.enabled == true)
             {
@@ -41,10 +35,10 @@ public class EnemyState : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        foreach (EnemyCaract item in enemysTypeList)
+        foreach (EnemyCaract item in game.enemysTypeList)
         {
             EnemyCaract choose = GetComponent(item.GetType()) as EnemyCaract;
-            if (collision.name == "MetaEnemigo" && choose.vidaEnemigo != 0)
+            if (collision.name == "MetaEnemigo" && choose.vidaEnemigo != 0 && choose.enabled == true)
             {
                 manejoDeVida?.Invoke(1);
             }

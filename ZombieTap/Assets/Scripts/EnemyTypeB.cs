@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class EnemyTypeB : EnemyCaract
 {
-    
-    
-  
-    public override void iniciar()
+
+    private void Start()
     {
         vidaEnemigo = 1;
         animacion.runtimeAnimatorController = animationController;
         movimientox = Random.Range(-1f, 1f);
     }
+
 
     private void Update()
     {

@@ -15,11 +15,4 @@ public abstract class EnemyCaract : MonoBehaviour
         movement = GetComponent<ZombieMovement>();
         animacion = GetComponent<Animator>();
     }
-    void OnEnable()
-    {
-       
-        
-    }
-
-    public abstract void iniciar();
 }
