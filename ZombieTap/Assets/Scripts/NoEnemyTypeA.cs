@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class NoEnemyTypeA : EnemyCaract
 {
-    private void Start()
+
+
+    private void OnEnable()
     {
         animacion.runtimeAnimatorController = animationController;
     }
-   
+
+
 }

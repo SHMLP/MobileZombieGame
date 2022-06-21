@@ -17,7 +17,6 @@ public class EnemyState : MonoBehaviour
     private void OnMouseDown()
     {
         
-        gameObject.SetActive(false);
         foreach (EnemyCaract item in game.enemysTypeList)
         {
             EnemyCaract choose = GetComponent(item.GetType()) as EnemyCaract;
@@ -30,6 +29,7 @@ public class EnemyState : MonoBehaviour
                 choose.enabled = false;
             }
         }
+        gameObject.SetActive(false);
 
        
     }
@@ -38,11 +38,17 @@ public class EnemyState : MonoBehaviour
         foreach (EnemyCaract item in game.enemysTypeList)
         {
             EnemyCaract choose = GetComponent(item.GetType()) as EnemyCaract;
-            if (collision.name == "MetaEnemigo" && choose.vidaEnemigo != 0 && choose.enabled == true)
+            if (collision.name == "MetaEnemigo" && choose.enabled == true)
             {
-                manejoDeVida?.Invoke(1);
+                if (choose.vidaEnemigo != 0)
+                {
+                    manejoDeVida?.Invoke(1);
+                }
+                choose.enabled = false;
+                gameObject.SetActive(false);
             }
         }
     }
 
+    
 }

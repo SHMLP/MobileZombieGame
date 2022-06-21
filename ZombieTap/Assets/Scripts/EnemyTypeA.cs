@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyTypeA : EnemyCaract
 {
-    private void Start()
+
+    private void OnEnable()
     {
         vidaEnemigo = 1;
         animacion.runtimeAnimatorController = animationController;
     }
    
 
-   
 }
