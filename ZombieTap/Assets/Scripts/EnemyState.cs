@@ -10,10 +10,12 @@ public class EnemyState : MonoBehaviour
     public delegate void ManejoDeCombos();
     public static ManejoDeCombos manejoDeCombos;
     GameManager game;
+
     private void Start()
     {
         game = FindObjectOfType<GameManager>();
     }
+  
     private void OnMouseDown()
     {
         
@@ -26,12 +28,17 @@ public class EnemyState : MonoBehaviour
                 {
                     manejoDeVida?.Invoke(3);
                 }
+                else
+                {
+                    int score;
+                    int.TryParse(game.score.text,out score);
+                    score += 25;
+                    game.score.text = score.ToString();
+                }
                 choose.enabled = false;
             }
         }
         gameObject.SetActive(false);
-
-       
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

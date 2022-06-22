@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class Jugador : MonoBehaviour
 {
-    int contCombo,vidaTotal=3;
-    
-    
+    int contCombo, vidaTotal = 3;
+    public Transform life;
+    public List<Transform> hearts; 
+
     // Start is called before the first frame update
     void Start()
     {
+
         EnemyState.manejoDeVida += Vida;
-        
+        for (int i = 0; i < life.childCount ; i++)
+        {
+            hearts.Add(life.GetChild(i));
+        }
     }
 
     // Update is called once per frame
@@ -24,10 +29,17 @@ public class Jugador : MonoBehaviour
     {
         
         vidaTotal -= numero;
+        foreach (Transform item in hearts)
+        {
+            if (item.gameObject.activeInHierarchy==true)
+            {
+                item.gameObject.SetActive(false);
+                break;
+            }
+        }
         if (vidaTotal<=0)
         {
-            print("Pierde");
-
+            life.gameObject.SetActive(false);
         }
     }
 
