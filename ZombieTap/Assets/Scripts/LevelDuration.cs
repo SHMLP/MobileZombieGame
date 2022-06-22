@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class LevelDuration : MonoBehaviour
 {
     [SerializeField] float VelocityBallY;
     GameManager game;
-   
+    
     private void Start()
     {
         game = FindObjectOfType<GameManager>();
         game.spawnPosition.enabled = true;
- 
-        
     }
 
     void Update()
@@ -22,7 +20,14 @@ public class LevelDuration : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        VelocityBallY = 0;
-        print("Fin1");
+        game.isPause = true;
+        Time.timeScale = 0;
+        //VelocityBallY = 0;
+        game.levelFinish.transform.Find("Continue").gameObject.SetActive(false);
+        game.levelFinish.transform.Find("YourScore").GetComponent<TextMeshProUGUI>().text = "Your Score is: " + game.score.text;
+        game.levelFinish.transform.Find("YourScore").gameObject.SetActive(true);
+        game.levelFinish.transform.Find("Next").gameObject.SetActive(true);
+        game.levelFinish.SetActive(true);
+
     }
 }

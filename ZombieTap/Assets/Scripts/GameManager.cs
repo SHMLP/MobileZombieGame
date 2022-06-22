@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public EnemyCaract[] enemysTypeList;
     public SpawnPosition spawnPosition;
     public TextMeshProUGUI score;
+    public GameObject levelFinish;
+    public bool isPause;
     private void Awake()
     {
         enemysTypeList = enemyPrefab.GetComponents<EnemyCaract>();

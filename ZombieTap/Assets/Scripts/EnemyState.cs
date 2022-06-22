@@ -15,30 +15,32 @@ public class EnemyState : MonoBehaviour
     {
         game = FindObjectOfType<GameManager>();
     }
-  
+
     private void OnMouseDown()
     {
-        
-        foreach (EnemyCaract item in game.enemysTypeList)
+        if (game.isPause==false)
         {
-            EnemyCaract choose = GetComponent(item.GetType()) as EnemyCaract;
-            if (choose.enabled == true)
+            foreach (EnemyCaract item in game.enemysTypeList)
             {
-                if (choose.vidaEnemigo==0)
+                EnemyCaract choose = GetComponent(item.GetType()) as EnemyCaract;
+                if (choose.enabled == true)
                 {
-                    manejoDeVida?.Invoke(3);
+                    if (choose.vidaEnemigo==0)
+                    {
+                        manejoDeVida?.Invoke(3);
+                    }
+                    else
+                    {
+                        int score;
+                        int.TryParse(game.score.text,out score);
+                        score += 25;
+                        game.score.text = score.ToString();
+                    }
+                    choose.enabled = false;
                 }
-                else
-                {
-                    int score;
-                    int.TryParse(game.score.text,out score);
-                    score += 25;
-                    game.score.text = score.ToString();
-                }
-                choose.enabled = false;
             }
+            gameObject.SetActive(false);
         }
-        gameObject.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

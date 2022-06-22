@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Jugador : MonoBehaviour
 {
     int contCombo, vidaTotal = 3;
     public Transform life;
-    public List<Transform> hearts; 
+    public List<Transform> hearts;
+    GameManager game;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
         EnemyState.manejoDeVida += Vida;
         for (int i = 0; i < life.childCount ; i++)
         {
@@ -39,8 +41,19 @@ public class Jugador : MonoBehaviour
         }
         if (vidaTotal<=0)
         {
+            print("perdio");
             life.gameObject.SetActive(false);
+
+            //game.levelFinish.transform.Find("Continue").gameObject.SetActive(false);
+            //game.levelFinish.transform.Find("YourScore").GetComponent<TextMeshProUGUI>().text = "Your Score is: " + game.score.text;
+            //game.levelFinish.transform.Find("YourScore").gameObject.SetActive(true);
+            //game.levelFinish.transform.Find("Again").gameObject.SetActive(true);
+            game.levelFinish.SetActive(true);
         }
+        //for (int i = 0; i < ; i++)
+        //{
+
+        //}
     }
 
     public void Combo(int enemyCont)
