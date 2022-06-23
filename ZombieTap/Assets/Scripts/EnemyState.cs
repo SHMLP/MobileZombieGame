@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class EnemyState : MonoBehaviour
 {
-    public delegate void ManejoDeVida(int numero);
-    public static event ManejoDeVida manejoDeVida;
-
-    public delegate void ManejoDeCombos();
-    public static ManejoDeCombos manejoDeCombos;
     GameManager game;
-
+    Jugador jugador;
     private void Start()
     {
         game = FindObjectOfType<GameManager>();
+        jugador = FindObjectOfType<Jugador>();
     }
 
     private void OnMouseDown()
@@ -27,14 +23,15 @@ public class EnemyState : MonoBehaviour
                 {
                     if (choose.vidaEnemigo==0)
                     {
-                        manejoDeVida?.Invoke(3);
+                        jugador.Vida(3);
                     }
                     else
                     {
                         int score;
-                        int.TryParse(game.score.text,out score);
-                        score += 25;
+                        int.TryParse(game.score.text, out score);
+                        score += 25 * jugador.Combo(1); 
                         game.score.text = score.ToString();
+                        
                     }
                     choose.enabled = false;
                 }
@@ -51,7 +48,8 @@ public class EnemyState : MonoBehaviour
             {
                 if (choose.vidaEnemigo != 0)
                 {
-                    manejoDeVida?.Invoke(1);
+                    jugador.Vida(1);
+                    jugador.Combo(0);
                 }
                 choose.enabled = false;
                 gameObject.SetActive(false);

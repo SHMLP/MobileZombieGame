@@ -11,9 +11,12 @@ public class SpawnPosition : MonoBehaviour
     public Transform enemigos;
     public List<Transform> listaEnemigos;
     GameManager game;
+ 
 
     void Start()
     {
+        lLimit.position = Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 1, 0));
+        rLimit.position = Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 1, 0));
         game = FindObjectOfType<GameManager>();
         for (int i = 0; i < enemigos.childCount; i++)
         {
@@ -25,11 +28,13 @@ public class SpawnPosition : MonoBehaviour
     {
         
         enemySpawnPosition = transform.position;
-        enemyPositionX = Random.Range(rLimit.position.x,lLimit.position.x);
+        enemyPositionX = Random.Range(lLimit.position.x,rLimit.position.x);
         enemySpawnPosition.x = enemyPositionX;
 
         spawnTime += Time.deltaTime;
-        if (spawnTime >= tiempoAparicion)
+        //(spawnTime >= 3/(1-2*(game.levelFactor-1)))
+        //if (spawnTime >= tiempoAparicion)
+        if(spawnTime >= 3 / (1 - 2 * (game.levelFactor - 1)))
         {
             
             spawnTime = 0;
@@ -37,7 +42,6 @@ public class SpawnPosition : MonoBehaviour
             {
                 if (item.gameObject.activeInHierarchy==false)
                 {
-
                     item.position = enemySpawnPosition;
                     item.gameObject.SetActive(true);
                     EnemyType(item);

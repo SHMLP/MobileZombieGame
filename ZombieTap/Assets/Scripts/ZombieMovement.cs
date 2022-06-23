@@ -20,7 +20,7 @@ public class ZombieMovement : MonoBehaviour
 
     public void SideMovement(float movimientox)
     {
-        transform.Translate(new Vector3(movimientox, 0, 0) * Time.deltaTime);
+        transform.Translate(new Vector3(movimientox, 0, 0)* enemyVelocityY * Time.deltaTime);
     }
 
 

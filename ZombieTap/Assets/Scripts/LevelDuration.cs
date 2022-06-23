@@ -10,7 +10,7 @@ public class LevelDuration : MonoBehaviour
     private void Start()
     {
         game = FindObjectOfType<GameManager>();
-        game.spawnPosition.enabled = true;
+        
     }
 
     void Update()
@@ -20,14 +20,6 @@ public class LevelDuration : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        game.isPause = true;
-        Time.timeScale = 0;
-        //VelocityBallY = 0;
-        game.levelFinish.transform.Find("Continue").gameObject.SetActive(false);
-        game.levelFinish.transform.Find("YourScore").GetComponent<TextMeshProUGUI>().text = "Your Score is: " + game.score.text;
-        game.levelFinish.transform.Find("YourScore").gameObject.SetActive(true);
-        game.levelFinish.transform.Find("Next").gameObject.SetActive(true);
-        game.levelFinish.SetActive(true);
-
+        game.LevelFinish("Next");
     }
 }

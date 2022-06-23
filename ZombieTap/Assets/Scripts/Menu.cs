@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Menu : MonoBehaviour
 {
+    //public GameObject numberLevel;
     public GameObject[] backMenuList;
     GameObject backMenu;
     GameManager game;
@@ -30,7 +32,6 @@ public class Menu : MonoBehaviour
             if (item.activeInHierarchy==true)
             {
                 backMenu = item;
-                print(backMenu);
             }
         }
     }
@@ -39,9 +40,15 @@ public class Menu : MonoBehaviour
         backMenu.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void NextLevel()
     {
-        
+        game.levelFactor += 1;
+    }
+
+    public void ChooseLevel()
+    {
+        int.TryParse(EventSystem.current.currentSelectedGameObject.name, out game.levelFactor);
+        game.spawnPosition.enabled = true;
+        game.levelDuration.enabled = true;
     }
 }
