@@ -8,14 +8,26 @@ public class GameManager : MonoBehaviour
     public GameObject enemyPrefab;
     public EnemyCaract[] enemysTypeList;
     public SpawnPosition spawnPosition;
-    public LevelDuration levelDuration;
+    public Transform levelDuration;
     public TextMeshProUGUI score;
     public GameObject levelFinish;
+
+    public Transform enemigos;
+    public List<Transform> listaEnemigos;
+
     public bool isPause;
     public int levelFactor;
     private void Awake()
     {
         enemysTypeList = enemyPrefab.GetComponents<EnemyCaract>();
+
+    }
+    private void Start()
+    {
+        for (int i = 0; i < enemigos.childCount; i++)
+        {
+            listaEnemigos.Add(enemigos.GetChild(i));
+        }
     }
     public void LevelFinish(string boton)
     {
@@ -26,5 +38,23 @@ public class GameManager : MonoBehaviour
         levelFinish.transform.Find("YourScore").gameObject.SetActive(true);
         levelFinish.transform.Find(boton).gameObject.SetActive(true);
         levelFinish.SetActive(true);
+    }
+
+    public void LevelStart()
+    {
+        isPause = false;
+        Time.timeScale = 1;
+
+        foreach (EnemyCaract item in enemysTypeList)
+        {
+            EnemyCaract choose = GetComponent(item.GetType()) as EnemyCaract;
+            if (choose.enabled==true)
+            {
+                choose.enabled = false;
+            }
+        }
+        levelDuration.Find("Duration").position = levelDuration.Find("Inicio").position;
+        spawnPosition.enabled = true;
+        levelDuration.Find("Duration").GetComponent<LevelDuration>().enabled = true;
     }
 }

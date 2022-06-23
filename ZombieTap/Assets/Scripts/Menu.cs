@@ -48,7 +48,6 @@ public class Menu : MonoBehaviour
     public void ChooseLevel()
     {
         int.TryParse(EventSystem.current.currentSelectedGameObject.name, out game.levelFactor);
-        game.spawnPosition.enabled = true;
-        game.levelDuration.enabled = true;
+        game.LevelStart();
     }
 }

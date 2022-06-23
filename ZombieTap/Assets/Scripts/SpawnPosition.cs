@@ -8,8 +8,8 @@ public class SpawnPosition : MonoBehaviour
     float enemyPositionX,spawnTime;
     public Transform rLimit, lLimit;
     public float tiempoAparicion;
-    public Transform enemigos;
-    public List<Transform> listaEnemigos;
+    //public Transform enemigos;
+    //public List<Transform> listaEnemigos;
     GameManager game;
  
 
@@ -18,10 +18,10 @@ public class SpawnPosition : MonoBehaviour
         lLimit.position = Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 1, 0));
         rLimit.position = Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 1, 0));
         game = FindObjectOfType<GameManager>();
-        for (int i = 0; i < enemigos.childCount; i++)
-        {
-            listaEnemigos.Add(enemigos.GetChild(i));
-        }
+        //for (int i = 0; i < enemigos.childCount; i++)
+        //{
+        //    listaEnemigos.Add(enemigos.GetChild(i));
+        //}
     }
 
     void Update()
@@ -38,7 +38,7 @@ public class SpawnPosition : MonoBehaviour
         {
             
             spawnTime = 0;
-            foreach (Transform item in listaEnemigos)
+            foreach (Transform item in game.listaEnemigos)
             {
                 if (item.gameObject.activeInHierarchy==false)
                 {
