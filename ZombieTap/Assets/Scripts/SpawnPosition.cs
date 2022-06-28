@@ -27,8 +27,7 @@ public class SpawnPosition : MonoBehaviour
 
         spawnTime += Time.deltaTime;
         if(spawnTime >= 3 / (1 + 1.5 * (game.levelFactor - 1)))
-        {
-            
+        {            
             spawnTime = 0;
             int zombieBorn = Random.Range(0, game.zombieBorn.Length);
             game.sounds.PlayOneShot(game.zombieBorn[zombieBorn]);
@@ -50,6 +49,7 @@ public class SpawnPosition : MonoBehaviour
 
     void EnemyType(Transform tipoenemigo)
     {
+      
         int random = Random.Range(0, game.enemysTypeList.Length);
         EnemyCaract choose = tipoenemigo.GetComponent(game.enemysTypeList[random].GetType()) as EnemyCaract;
         choose.enabled = true;
