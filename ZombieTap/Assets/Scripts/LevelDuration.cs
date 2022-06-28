@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
+
 public class LevelDuration : MonoBehaviour
 {
     [SerializeField] float VelocityBallY;
@@ -20,6 +21,15 @@ public class LevelDuration : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        game.LevelFinish("Next");
+        if (game.levelFactor<9)
+        {
+            string levelName = (game.levelFactor+1).ToString();
+            game.canvas.transform.Find("Levels").Find("Niveles").Find(levelName).GetComponent<Button>().interactable = true;
+            game.LevelFinish("Next");
+        }
+        else
+        {
+            game.LevelFinish("Again");
+        }
     }
 }

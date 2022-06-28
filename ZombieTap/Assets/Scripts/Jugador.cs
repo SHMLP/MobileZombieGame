@@ -5,24 +5,17 @@ using TMPro;
 
 public class Jugador : MonoBehaviour
 {
-    int contCombo,vidaTotal = 3;
-    public Transform life;
-    public List<Transform> hearts;
+    public int contCombo,vidaTotal = 3;
     GameManager game;
 
-    // Start is called before the first frame update
     void Start()
     {
         game = FindObjectOfType<GameManager>();
-        for (int i = 0; i < life.childCount ; i++)
-        {
-            hearts.Add(life.GetChild(i));
-        }
     }
     public void Vida(int numero)
     {
         vidaTotal -= numero;
-        foreach (Transform item in hearts)
+        foreach (Transform item in game.hearts)
         {
             if (item.gameObject.activeInHierarchy == true)
             {
@@ -39,6 +32,13 @@ public class Jugador : MonoBehaviour
         }
     }
 
+    public void Score(int numerocombo)
+    {
+        int score;
+        int.TryParse(game.score.text, out score);
+        score += 25 * game.jugador.Combo(numerocombo);
+        game.score.text = score.ToString();
+    }
     public int Combo(int enemyCont)
     {
         int combo=1;

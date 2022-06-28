@@ -10,6 +10,4 @@ public class EnemyTypeA : EnemyCaract
         vidaEnemigo = 1;
         animacion.runtimeAnimatorController = animationController;
     }
-   
-
 }

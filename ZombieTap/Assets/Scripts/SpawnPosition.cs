@@ -8,8 +8,6 @@ public class SpawnPosition : MonoBehaviour
     float enemyPositionX,spawnTime;
     public Transform rLimit, lLimit;
     public float tiempoAparicion;
-    //public Transform enemigos;
-    //public List<Transform> listaEnemigos;
     GameManager game;
  
 
@@ -18,10 +16,6 @@ public class SpawnPosition : MonoBehaviour
         lLimit.position = Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 1, 0));
         rLimit.position = Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 1, 0));
         game = FindObjectOfType<GameManager>();
-        //for (int i = 0; i < enemigos.childCount; i++)
-        //{
-        //    listaEnemigos.Add(enemigos.GetChild(i));
-        //}
     }
 
     void Update()
@@ -32,17 +26,19 @@ public class SpawnPosition : MonoBehaviour
         enemySpawnPosition.x = enemyPositionX;
 
         spawnTime += Time.deltaTime;
-        //(spawnTime >= 3/(1-2*(game.levelFactor-1)))
-        //if (spawnTime >= tiempoAparicion)
-        if(spawnTime >= 3 / (1 - 2 * (game.levelFactor - 1)))
+        if(spawnTime >= 3 / (1 + 1.5 * (game.levelFactor - 1)))
         {
             
             spawnTime = 0;
+            int zombieBorn = Random.Range(0, game.zombieBorn.Length);
+            game.sounds.PlayOneShot(game.zombieBorn[zombieBorn]);
             foreach (Transform item in game.listaEnemigos)
             {
                 if (item.gameObject.activeInHierarchy==false)
                 {
                     item.position = enemySpawnPosition;
+                    item.GetComponent<BoxCollider2D>().enabled=true;
+                    item.GetComponent<ZombieMovement>().enemyVelocityY = game.velocidadEnemigoY;
                     item.gameObject.SetActive(true);
                     EnemyType(item);
                     break;

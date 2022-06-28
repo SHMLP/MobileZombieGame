@@ -10,6 +10,4 @@ public class NoEnemyTypeA : EnemyCaract
     {
         animacion.runtimeAnimatorController = animationController;
     }
-
-
 }

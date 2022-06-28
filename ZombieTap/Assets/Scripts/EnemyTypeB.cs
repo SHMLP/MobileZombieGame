@@ -4,23 +4,32 @@ using UnityEngine;
 
 public class EnemyTypeB : EnemyCaract
 {
-    Camera camara;
+
 
     private void OnEnable()
     {
         vidaEnemigo = 1;
         animacion.runtimeAnimatorController = animationController;
         movimientox = Random.Range(-1f, 1f);
-        camara = FindObjectOfType<Camera>();
+
     }
 
     private void Update()
     {
         movement.SideMovement(movimientox);
-        Vector3 sides = camara.WorldToViewportPoint(transform.position);
+        Vector3 sides = Camera.main.WorldToViewportPoint(transform.position);
+        StayInSide();
         if (sides.x >= 0.9)
             movimientox = -Mathf.Abs(movimientox);
         else if (sides.x <= 0.1)
+            movimientox = Mathf.Abs(movimientox);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (movimientox>=0)
+            movimientox = -Mathf.Abs(movimientox);
+        else
             movimientox = Mathf.Abs(movimientox);
     }
 }
