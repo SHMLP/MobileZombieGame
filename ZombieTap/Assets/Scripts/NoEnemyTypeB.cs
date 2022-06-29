@@ -13,8 +13,11 @@ public class NoEnemyTypeB : EnemyCaract
         StayInSide();
         Rebotar();
     }
+
+
     private void OnEnable()
     {
+        vidaEnemigo = 0;
         animacion.runtimeAnimatorController = animationController;
         movimientox = Random.Range(-1f, 1f);
     }

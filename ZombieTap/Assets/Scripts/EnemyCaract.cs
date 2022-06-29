@@ -5,12 +5,13 @@ using UnityEngine;
 public abstract class EnemyCaract : MonoBehaviour
 {
     public int vidaEnemigo;
-    public bool rebotar=false;
+    public bool up=false, rebotar=false;
     protected Animator animacion;
     protected float movimientox;
     protected ZombieMovement movement;
     public RuntimeAnimatorController animationController;
     public GameManager game;
+
 
     private void Awake()
     {
@@ -38,13 +39,13 @@ public abstract class EnemyCaract : MonoBehaviour
     public void Rebotar()
     {
 
-            this.rebotar = true;
-            movement.SideMovement(movimientox);
-            Vector3 sides = Camera.main.WorldToViewportPoint(transform.position);
-            if (sides.x >= 0.9)
-                movimientox = -Mathf.Abs(movimientox);
-            else if (sides.x <= 0.1)
-                movimientox = Mathf.Abs(movimientox);
+        rebotar = true;
+        movement.SideMovement(movimientox);
+        Vector3 sides = Camera.main.WorldToViewportPoint(transform.position);
+        if (sides.x >= 0.9)
+            movimientox = -Mathf.Abs(movimientox);
+        else if (sides.x <= 0.1)
+            movimientox = Mathf.Abs(movimientox);
 
     }
     private void OnCollisionEnter2D(Collision2D collision)

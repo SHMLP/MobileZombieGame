@@ -12,6 +12,7 @@ public class NoEnemyTypeA : EnemyCaract
 
     private void OnEnable()
     {
+        vidaEnemigo = 0;
         animacion.runtimeAnimatorController = animationController;
     }
 }

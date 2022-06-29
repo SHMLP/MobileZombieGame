@@ -24,18 +24,6 @@ public class Jugador : MonoBehaviour
             numHeartInactive += 1;
             numero -= 1;
         }
-
-        //foreach (Transform item in game.hearts)
-        //{
-        //    if (item.gameObject.activeInHierarchy == true)
-        //    {
-        //        item.gameObject.SetActive(false);
-        //        if (numero==1)
-        //        {
-        //            break;
-        //        }
-        //    }
-        //}
         if (vidaTotal <= 0)
         {
             game.LevelFinish("Again");

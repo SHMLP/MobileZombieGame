@@ -26,7 +26,7 @@ public class EnemyState : MonoBehaviour
                     {
                         choose.ManejoDeVida();
                     }
-                    else if (choose.vidaEnemigo == 1)
+                    else if (choose.vidaEnemigo == 1 && choose.up==false)
                     {
                         GetComponent<ZombieMovement>().enemyVelocityY = 0;
                         GetComponent<BoxCollider2D>().enabled = false;
@@ -46,6 +46,7 @@ public class EnemyState : MonoBehaviour
         }
       
     }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         foreach (EnemyCaract item in game.enemysTypeList)
@@ -55,13 +56,14 @@ public class EnemyState : MonoBehaviour
             {
                 if (choose.vidaEnemigo != 0)
                 {
-                    if (choose.vidaEnemigo>1)
+                    if (choose.up==true)
                     {
+                        game.jugador.Vida(choose.vidaEnemigo);
                         game.jugador.Score(1);
                     }
                     else
                     {
-                        game.jugador.Vida(choose.vidaEnemigo);
+                        game.jugador.Vida(1);
                         game.jugador.Score(0);
                     }
                 }

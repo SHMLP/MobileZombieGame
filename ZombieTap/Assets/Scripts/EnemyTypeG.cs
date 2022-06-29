@@ -6,7 +6,7 @@ public class EnemyTypeG : EnemyCaract
 {
     public override void ManejoDeVida()
     {
-        vidaEnemigo += 2;
+        vidaEnemigo += 1;
     }
 
     private void Update()
@@ -17,6 +17,8 @@ public class EnemyTypeG : EnemyCaract
 
     private void OnEnable()
     {
+        up = true;
+        vidaEnemigo = 0;
         animacion.runtimeAnimatorController = animationController;
         movimientox = Random.Range(-1f, 1f);
     }

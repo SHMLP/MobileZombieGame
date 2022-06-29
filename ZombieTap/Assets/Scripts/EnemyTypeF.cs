@@ -6,13 +6,15 @@ public class EnemyTypeF : EnemyCaract
 {
     public override void ManejoDeVida()
     {
-        vidaEnemigo += 2;
+        vidaEnemigo += 1;
     }
 
 
 
     private void OnEnable()
     {
+        up = true;
+        vidaEnemigo = 0;
         animacion.runtimeAnimatorController = animationController;
     }
 }
