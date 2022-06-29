@@ -17,10 +17,6 @@ public class EnemyState : MonoBehaviour
     {
         if (game.isPause==false)
         {
-            GetComponent<ZombieMovement>().enemyVelocityY = 0;
-            GetComponent<BoxCollider2D>().enabled = false;
-            GetComponent<Animator>().runtimeAnimatorController = muerte;
-            
             foreach (EnemyCaract item in game.enemysTypeList)
             {
                 EnemyCaract choose = GetComponent(item.GetType()) as EnemyCaract;
@@ -28,19 +24,27 @@ public class EnemyState : MonoBehaviour
                 {
                     if (choose.vidaEnemigo==0)
                     {
-                        game.jugador.Vida(3);
+                        choose.ManejoDeVida();
                     }
-                    else
+                    else if (choose.vidaEnemigo == 1)
                     {
+                        GetComponent<ZombieMovement>().enemyVelocityY = 0;
+                        GetComponent<BoxCollider2D>().enabled = false;
+                        GetComponent<Animator>().runtimeAnimatorController = muerte;
                         int zombieDied= Random.Range(0, game.zombieDied.Length);
                         game.sounds.PlayOneShot(game.zombieDied[zombieDied]);
                         game.jugador.Score(1);
+                        choose.enabled = false;
+                        StartCoroutine("WaitToFalse");
                     }
-                    choose.enabled = false;
+                    else
+                    {
+                        choose.ManejoDeVida();
+                    }
                 }
             }
-            StartCoroutine("WaitToFalse");
         }
+      
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -51,9 +55,18 @@ public class EnemyState : MonoBehaviour
             {
                 if (choose.vidaEnemigo != 0)
                 {
-                    game.jugador.Vida(1);
-                    game.jugador.Score(0);
+                    if (choose.vidaEnemigo>1)
+                    {
+                        game.jugador.Score(1);
+                    }
+                    else
+                    {
+                        game.jugador.Vida(choose.vidaEnemigo);
+                        game.jugador.Score(0);
+                    }
                 }
+                else
+                    game.jugador.Score(1);
                 choose.enabled = false;
                 gameObject.SetActive(false);
             }

@@ -9,4 +9,9 @@ public class EnemyTypeC : EnemyCaract
         vidaEnemigo = 1;
         animacion.runtimeAnimatorController = animationController;
     }
+
+    public override void ManejoDeVida()
+    {
+        throw new System.NotImplementedException();
+    }
 }

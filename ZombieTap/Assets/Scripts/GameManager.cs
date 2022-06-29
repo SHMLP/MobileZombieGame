@@ -123,6 +123,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         LimpiarElementosDeLaPantalla();
         jugador.Combo(0);
+        jugador.numHeartInactive = 0;
         score.text = "0";
         string levelNumber = levelFactor.ToString();
         canvas.transform.Find("InGame").Find("Levelnumber").GetComponent<TextMeshProUGUI>().text = "Level " + levelNumber;

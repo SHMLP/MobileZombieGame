@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class EnemyTypeA : EnemyCaract
 {
-
+    public override void ManejoDeVida()
+    {
+        throw new System.NotImplementedException();
+    }
+ 
     private void OnEnable()
     {
         vidaEnemigo = 1;

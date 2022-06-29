@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class EnemyTypeE : EnemyCaract
 {
+    public override void ManejoDeVida()
+    {
+        vidaEnemigo -= 1;
+    }
+    private void Update()
+    {
+        StayInSide();
+        Rebotar();
+    }
+
     private void OnEnable()
     {
-        vidaEnemigo = 1;
+        vidaEnemigo = 2;
         animacion.runtimeAnimatorController = animationController;
+        movimientox = Random.Range(-1f, 1f);
     }
 }

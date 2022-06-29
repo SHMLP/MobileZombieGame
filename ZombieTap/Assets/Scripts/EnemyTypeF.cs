@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class EnemyTypeF : EnemyCaract
 {
+    public override void ManejoDeVida()
+    {
+        vidaEnemigo += 2;
+    }
+
+
+
     private void OnEnable()
     {
-        vidaEnemigo = 1;
         animacion.runtimeAnimatorController = animationController;
     }
 }

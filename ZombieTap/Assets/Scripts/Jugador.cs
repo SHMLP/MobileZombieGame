@@ -5,7 +5,7 @@ using TMPro;
 
 public class Jugador : MonoBehaviour
 {
-    public int contCombo,vidaTotal = 3;
+    public int numHeartInactive,contCombo, vidaTotal = 3;
     GameManager game;
 
     void Start()
@@ -15,18 +15,28 @@ public class Jugador : MonoBehaviour
     public void Vida(int numero)
     {
         vidaTotal -= numero;
-        foreach (Transform item in game.hearts)
+        while (numero>0 && numHeartInactive < game.canvas.transform.Find("InGame").Find("Life").childCount)
         {
-            if (item.gameObject.activeInHierarchy == true)
+            if (game.hearts[numHeartInactive].gameObject.activeInHierarchy == true)
             {
-                item.gameObject.SetActive(false);
-                if (numero==1)
-                {
-                    break;
-                }
+                game.hearts[numHeartInactive].gameObject.SetActive(false);
             }
+            numHeartInactive += 1;
+            numero -= 1;
         }
-        if (vidaTotal<=0)
+
+        //foreach (Transform item in game.hearts)
+        //{
+        //    if (item.gameObject.activeInHierarchy == true)
+        //    {
+        //        item.gameObject.SetActive(false);
+        //        if (numero==1)
+        //        {
+        //            break;
+        //        }
+        //    }
+        //}
+        if (vidaTotal <= 0)
         {
             game.LevelFinish("Again");
         }

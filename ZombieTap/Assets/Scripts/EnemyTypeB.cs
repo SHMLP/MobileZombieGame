@@ -16,20 +16,22 @@ public class EnemyTypeB : EnemyCaract
 
     private void Update()
     {
-        movement.SideMovement(movimientox);
-        Vector3 sides = Camera.main.WorldToViewportPoint(transform.position);
+
         StayInSide();
-        if (sides.x >= 0.9)
-            movimientox = -Mathf.Abs(movimientox);
-        else if (sides.x <= 0.1)
-            movimientox = Mathf.Abs(movimientox);
+        Rebotar();
+
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (movimientox>=0)
+    //        movimientox = -Mathf.Abs(movimientox);
+    //    else
+    //        movimientox = Mathf.Abs(movimientox);
+    //}
+
+    public override void ManejoDeVida()
     {
-        if (movimientox>=0)
-            movimientox = -Mathf.Abs(movimientox);
-        else
-            movimientox = Mathf.Abs(movimientox);
+        throw new System.NotImplementedException();
     }
 }
