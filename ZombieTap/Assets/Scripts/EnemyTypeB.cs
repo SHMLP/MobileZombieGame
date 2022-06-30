@@ -16,19 +16,9 @@ public class EnemyTypeB : EnemyCaract
 
     private void Update()
     {
-
         StayInSide();
         Rebotar();
-
     }
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (movimientox>=0)
-    //        movimientox = -Mathf.Abs(movimientox);
-    //    else
-    //        movimientox = Mathf.Abs(movimientox);
-    //}
 
     public override void ManejoDeVida()
     {

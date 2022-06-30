@@ -25,12 +25,13 @@ public class EnemyState : MonoBehaviour
                     if (choose.vidaEnemigo==0)
                     {
                         choose.ManejoDeVida();
+                        gameObject.SetActive(false);
                     }
                     else if (choose.vidaEnemigo == 1 && choose.up==false)
                     {
+                        GetComponent<Animator>().runtimeAnimatorController = muerte;
                         GetComponent<ZombieMovement>().enemyVelocityY = 0;
                         GetComponent<BoxCollider2D>().enabled = false;
-                        GetComponent<Animator>().runtimeAnimatorController = muerte;
                         int zombieDied= Random.Range(0, game.zombieDied.Length);
                         game.sounds.PlayOneShot(game.zombieDied[zombieDied]);
                         game.jugador.Score(1);

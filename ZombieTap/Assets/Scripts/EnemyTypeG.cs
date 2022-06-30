@@ -6,6 +6,7 @@ public class EnemyTypeG : EnemyCaract
 {
     public override void ManejoDeVida()
     {
+        StartCoroutine(PainColorChange());
         vidaEnemigo += 1;
     }
 

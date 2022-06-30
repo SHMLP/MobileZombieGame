@@ -48,9 +48,6 @@ public class GameManager : MonoBehaviour
         levelFinish = canvas.transform.Find("Level");
         music = Camera.main.transform.Find("Music").GetComponent<AudioSource>();
         sounds = Camera.main.transform.Find("Sounds").GetComponent<AudioSource>();
-        
-        
-
     }
     private void Start()
     {

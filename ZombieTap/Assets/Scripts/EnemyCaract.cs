@@ -58,6 +58,11 @@ public abstract class EnemyCaract : MonoBehaviour
                 movimientox = Mathf.Abs(movimientox);
         }
     }
-
+    public IEnumerator PainColorChange()
+    {
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<SpriteRenderer>().color = Color.white;
+    }
     public abstract void ManejoDeVida();
 }
