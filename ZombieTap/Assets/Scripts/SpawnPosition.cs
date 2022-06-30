@@ -49,7 +49,12 @@ public class SpawnPosition : MonoBehaviour
 
     void EnemyType(Transform tipoenemigo)
     {
-        int random = Random.Range(0, game.enemysTypeList.Length);
+        int enemyTypeActive=0;
+        if (game.levelFactor<=7)
+            enemyTypeActive = game.levelFactor + 2;
+        else
+            enemyTypeActive = game.levelFactor;
+        int random = Random.Range(0, enemyTypeActive);
         EnemyCaract choose = tipoenemigo.GetComponent(game.enemysTypeList[random].GetType()) as EnemyCaract;
         choose.enabled = true;
     }

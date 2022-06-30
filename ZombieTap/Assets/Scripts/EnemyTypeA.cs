@@ -12,6 +12,7 @@ public class EnemyTypeA : EnemyCaract
     private void OnEnable()
     {
         vidaEnemigo = 1;
+        GetComponent<SpriteRenderer>().color = Color.white;
         animacion.runtimeAnimatorController = animationController;
     }
 }

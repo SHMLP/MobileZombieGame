@@ -22,9 +22,10 @@ public class EnemyState : MonoBehaviour
                 EnemyCaract choose = GetComponent(item.GetType()) as EnemyCaract;
                 if (choose.enabled == true)
                 {
-                    if (choose.vidaEnemigo==0)
+                    if (choose.vidaEnemigo==0 && choose.up == false)
                     {
                         choose.ManejoDeVida();
+                        choose.enabled = false;
                         gameObject.SetActive(false);
                     }
                     else if (choose.vidaEnemigo == 1 && choose.up==false)

@@ -20,6 +20,7 @@ public class EnemyTypeG : EnemyCaract
     {
         up = true;
         vidaEnemigo = 0;
+        GetComponent<SpriteRenderer>().color = Color.white;
         animacion.runtimeAnimatorController = animationController;
         movimientox = Random.Range(-1f, 1f);
     }

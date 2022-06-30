@@ -19,10 +19,10 @@ GameObject:
   - component: {fileID: 434255006089859508}
   - component: {fileID: 7063267946434974170}
   - component: {fileID: -8982863378639486762}
-  - component: {fileID: -3957415323891780466}
-  - component: {fileID: -4042497676608461871}
-  - component: {fileID: 8405462779846151575}
   - component: {fileID: -1694520452606909023}
+  - component: {fileID: -4042497676608461871}
+  - component: {fileID: -3957415323891780466}
+  - component: {fileID: 8405462779846151575}
   - component: {fileID: 610090013461321662}
   m_Layer: 0
   m_Name: Enemigo
@@ -201,7 +201,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaEnemigo: 0
+  up: 0
+  rebotar: 0
   animationController: {fileID: 9100000, guid: 4b51f3a14c1fe9348b74e681c3f0d036, type: 2}
+  game: {fileID: 0}
 --- !u!114 &434255006089859508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +218,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaEnemigo: 0
+  up: 0
+  rebotar: 0
   animationController: {fileID: 9100000, guid: 0210136d8049ded4882e603173c26f34, type: 2}
+  game: {fileID: 0}
 --- !u!114 &7063267946434974170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +235,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaEnemigo: 0
+  up: 0
+  rebotar: 0
   animationController: {fileID: 9100000, guid: 63f981b3cb356884fb60214efbde4ad3, type: 2}
+  game: {fileID: 0}
 --- !u!114 &-8982863378639486762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,49 +252,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaEnemigo: 0
+  up: 0
+  rebotar: 0
   animationController: {fileID: 9100000, guid: a1421ecab2e813541b1a7de025fe4e86, type: 2}
---- !u!114 &-3957415323891780466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6093636498611356306}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012c05f2c724d744ea1604c9a02aee38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vidaEnemigo: 0
-  animationController: {fileID: 9100000, guid: 88644d6f14ebba8448fb1cf13333e8a6, type: 2}
---- !u!114 &-4042497676608461871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6093636498611356306}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4244dd9d52895d842852b1588addb327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vidaEnemigo: 0
-  animationController: {fileID: 9100000, guid: f4f76d65e35f1694b8e60cc81b534e4d, type: 2}
---- !u!114 &8405462779846151575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6093636498611356306}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d561f4d00a1728a48b2ae7d3cb92283e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vidaEnemigo: 0
-  animationController: {fileID: 9100000, guid: 79513f6ec734b814e94e2c7ba3ddf80f, type: 2}
+  game: {fileID: 0}
 --- !u!114 &-1694520452606909023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +269,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaEnemigo: 0
+  up: 0
+  rebotar: 0
   animationController: {fileID: 9100000, guid: dab70ca7651b1b54aa9bfdfc0343975a, type: 2}
+  game: {fileID: 0}
+--- !u!114 &-4042497676608461871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6093636498611356306}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4244dd9d52895d842852b1588addb327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaEnemigo: 0
+  up: 0
+  rebotar: 0
+  animationController: {fileID: 9100000, guid: f4f76d65e35f1694b8e60cc81b534e4d, type: 2}
+  game: {fileID: 0}
+--- !u!114 &-3957415323891780466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6093636498611356306}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012c05f2c724d744ea1604c9a02aee38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaEnemigo: 0
+  up: 0
+  rebotar: 0
+  animationController: {fileID: 9100000, guid: 88644d6f14ebba8448fb1cf13333e8a6, type: 2}
+  game: {fileID: 0}
+--- !u!114 &8405462779846151575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6093636498611356306}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d561f4d00a1728a48b2ae7d3cb92283e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaEnemigo: 0
+  up: 0
+  rebotar: 0
+  animationController: {fileID: 9100000, guid: 79513f6ec734b814e94e2c7ba3ddf80f, type: 2}
+  game: {fileID: 0}
 --- !u!114 &610090013461321662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,4 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaEnemigo: 0
+  up: 0
+  rebotar: 0
   animationController: {fileID: 9100000, guid: 0c98e2cd9cad6d24f86f40fdc2a6abde, type: 2}
+  game: {fileID: 0}

@@ -19,6 +19,7 @@ public class EnemyTypeE : EnemyCaract
     private void OnEnable()
     {
         vidaEnemigo = 2;
+        GetComponent<SpriteRenderer>().color = Color.white;
         animacion.runtimeAnimatorController = animationController;
         movimientox = Random.Range(-1f, 1f);
     }

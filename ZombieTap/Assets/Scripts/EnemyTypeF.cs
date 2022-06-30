@@ -16,6 +16,7 @@ public class EnemyTypeF : EnemyCaract
     {
         up = true;
         vidaEnemigo = 0;
+        GetComponent<SpriteRenderer>().color = Color.white;
         animacion.runtimeAnimatorController = animationController;
     }
 }
